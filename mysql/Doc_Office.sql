@@ -10,7 +10,7 @@ CREATE TABLE ACCOUNT(
     hash varchar(100)
     );
 CREATE TABLE DOCTOR(
-	  Doctor_ID int NOT NULL UNIQUE AUTO_INCREMENT,
+	Doctor_ID int NOT NULL UNIQUE AUTO_INCREMENT,
     First_name varchar(45) ,
     Last_name varchar(45),
     Specialty varchar(45),
@@ -32,7 +32,9 @@ CREATE TABLE PATIENT(
     Insurance_ID int,
     username varchar(45),
     Phone_number char(10),
+    primaryDoctor INT,
     FOREIGN KEY (username) REFERENCES ACCOUNT(username),
+    FOREIGN KEY (primaryDoctor) REFERENCES DOCTOR(Doctor_ID),
     Primary Key (SSN)
     );
     
@@ -85,3 +87,21 @@ CREATE TABLE AUDIT(
     Date_modified datetime,
     FOREIGN KEY (Doctor_ID) REFERENCES DOCTOR(Doctor_ID)
     );
+
+DROP TABLE IF EXISTS DOCTORPATIENT
+CREATE TABLE DOCTORPATIENT (
+  `doctorId` INT NOT NULL,
+  `patientSSN` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`doctorId`, `patientSSN`),
+  CONSTRAINT `doctorId`
+    FOREIGN KEY (`doctorId`)
+    REFERENCES `doc_office`.`doctor` (`Doctor_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `patientId`
+    FOREIGN KEY (`patientSSN`)
+    REFERENCES `doc_office`.`patient` (`Patient_SSN`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+

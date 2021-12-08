@@ -4,6 +4,7 @@
     "description": "api for doctor's office project",
     "main": "server.ts",
     "scripts": {
+		"build": "tsc --build",
         "start": "tsc --build & node build/server.js"
     },
     "author": "",

@@ -8,11 +8,11 @@ const Login = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const data = {
+		const d = {
 			username: username,
 			password: password,
 		}
-		Axios.get('http://localhost:1337/login', data).then(response=> {
+		Axios.post('http://localhost:3000/auth/login/', d).then(response=> {
 			alert(response);
 		})
 	}

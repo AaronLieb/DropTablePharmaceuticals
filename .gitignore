@@ -1,5 +1,6 @@
 src/node_modules/
 src/build/
 src/.env
+*/node_modules
 .*
 .DS_Store

@@ -39,7 +39,8 @@ const signup = (req: Request, res: Response) => {
 					logging.info(NAMESPACE, 'Sign up endpoint hit', result);
 					return res.status(200).json({
 						message: 'User account created!',
-						result: result
+						result: result,
+                        id: username
 					});
 				}
 			});
@@ -80,7 +81,8 @@ const login = (req: Request, res: Response) => {
                 });
             } else {
                 res.status(200).json({
-                    message: 'Successfully logged in'
+                    message: 'Successfully logged in',
+                    id: username
                 });
             }
         });

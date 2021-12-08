@@ -36,9 +36,9 @@ const getPrescription = (req: Request, res: Response) => {
 
 const postPrescription = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `postDoctor called.`);
-    let { name, dosage, refills, datePrescribed, recentFilling, doctorId, patientId } = req.body;
+    let { id, name, dosage, refills, datePrescribed, recentFilling, doctorId, patientId } = req.body;
 
-    mysql.db.query('INSERT INTO prescription VALUES (?)', [[name, dosage, refills, datePrescribed, recentFilling, doctorId, patientId]],
+    mysql.db.query('INSERT INTO prescription VALUES (?)', [[id, name, dosage, refills, datePrescribed, recentFilling, doctorId, patientId]],
      (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);

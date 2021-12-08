@@ -40,9 +40,9 @@ const getTest = (req: Request, res: Response) => {
 
 const postTest = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `postTest called.`);
-    let { ssn, firstName, lastName, phone, streetName, streetNumber, city, zip, insurance } = req.body;
+    let { id, ssn, firstName, lastName, phone, streetName, streetNumber, city, zip, insurance } = req.body;
 
-    mysql.db.query('INSERT INTO medical_test VALUES (?)', [[ssn, firstName, lastName, phone, streetName, streetNumber, city, zip, insurance]],
+    mysql.db.query('INSERT INTO medical_test VALUES (?)', [[id, ssn, firstName, lastName, phone, streetName, streetNumber, city, zip, insurance]],
      (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);

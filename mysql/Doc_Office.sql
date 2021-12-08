@@ -22,7 +22,7 @@ CREATE TABLE DOCTOR(
     );
 DROP TABLE IF EXISTS PATIENT;
 CREATE TABLE PATIENT(
-	  SSN char(9) UNIQUE,
+	SSN char(9) UNIQUE,
     First_name varchar(45),
     Last_name varchar(45),
     Street_name varchar(50),
@@ -40,11 +40,11 @@ CREATE TABLE PATIENT(
     
 DROP TABLE IF EXISTS PRESCRIPTION;
 CREATE TABLE PRESCRIPTION(
-	Prescription_ID int,
+	Prescription_ID int AUTO_INCREMENT,
 	Drug_name varchar(45),
 	Dosage int,
 	Number_of_refills int,
-	Prescribed_by int AUTO_INCREMENT,
+	Prescribed_by int,
 	Patient_SSN char(9),
     Date_prescribed datetime,
     Most_recent_filling datetime,
@@ -55,7 +55,7 @@ CREATE TABLE PRESCRIPTION(
 
 DROP TABLE IF EXISTS MEDICAL_TEST;
 CREATE TABLE MEDICAL_TEST(
-	  Test_ID int AUTO_INCREMENT,
+	Test_ID int AUTO_INCREMENT,
     Doctor_ID int,
     Test_type varchar(45),
     Result varchar(100),
@@ -68,10 +68,10 @@ CREATE TABLE MEDICAL_TEST(
 
 DROP TABLE IF EXISTS APPOINTMENT;
 CREATE TABLE APPOINTMENT(
-	Appointment_number int,
+	Appointment_number int AUTO_INCREMENT,
     Test_given int,
 	Patient_SSN char(9),
-    Doctor_ID int AUTO_INCREMENT,
+    Doctor_ID int,
     Date datetime,
     Room_number int,
     PRIMARY KEY (Appointment_number),
@@ -82,7 +82,8 @@ CREATE TABLE APPOINTMENT(
 
 DROP TABLE IF EXISTS AUDIT;
 CREATE TABLE AUDIT(
-	Doctor_ID int AUTO_INCREMENT,
+    id int AUTO_INCREMENT,
+	Doctor_ID int,
     Action varchar(100),
     Date_modified datetime,
     FOREIGN KEY (Doctor_ID) REFERENCES DOCTOR(Doctor_ID)

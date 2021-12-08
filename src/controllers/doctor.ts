@@ -56,9 +56,9 @@ const getDoctorPatients = (req: Request, res: Response) => {
 
 const postDoctor = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `postDoctor called.`);
-    let { firstName, lastName, phone, specialty, salary } = req.body;
+    let { id, firstName, lastName, phone, specialty, salary } = req.body;
 
-    mysql.db.query('INSERT INTO doctor VALUES (?)', [[firstName, lastName, phone, specialty, salary]],
+    mysql.db.query('INSERT INTO doctor VALUES (?)', [[id, firstName, lastName, phone, specialty, salary]],
      (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);

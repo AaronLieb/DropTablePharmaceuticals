@@ -7,7 +7,7 @@ import doctor from './routes/doctor';
 import patient from './routes/patient';
 import appointment from './routes/appointment';
 import prescription from './routes/prescription';
-import test from './routes/test';
+import test from './routes/medical_test';
 import cors from 'cors';
 
 const NAMESPACE = 'Server';

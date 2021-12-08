@@ -8,7 +8,7 @@ const NAMESPACE = 'Appointment Controller';
 // res : { result: DataRowPackets }
 const getByPatient = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `GetByPatient endpoint called.`);
-    mysql.db.query('SELECT * FROM appointment WHERE patientId = ?', [req.body['id']],
+    mysql.db.query('SELECT * FROM appointment WHERE Patient_SSN = ?', [req.body['id']],
     (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);

@@ -8,9 +8,11 @@ import patient from './routes/patient';
 import appointment from './routes/appointment';
 import prescription from './routes/prescription';
 import test from './routes/test';
+import cors from 'cors';
 
 const NAMESPACE = 'Server';
 const router = express();
+router.use(cors());
 
 // logging requests
 router.use((req, res, next) => {

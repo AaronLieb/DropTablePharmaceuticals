@@ -22,7 +22,7 @@ const getAll = (req: Request, res: Response) => {
 
 const getPrescription = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `getPrescription endpoint called.`);
-    mysql.db.query('SELECT * FROM prescription WHERE Prescription_SSN = ?', [req.body['id']], (error, result) => {
+    mysql.db.query('SELECT * FROM prescription WHERE Patient_SSN = ?', [req.body['id']], (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);
             res.status(400).json(error);

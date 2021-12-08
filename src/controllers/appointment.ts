@@ -26,7 +26,7 @@ const getByPatient = (req: Request, res: Response) => {
 const getByDoctor = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `getPatientDoctor called.`);
 
-    mysql.db.query('SELECT * FROM appointment WHERE doctorId = ?', [req.body['id']],
+    mysql.db.query('SELECT * FROM appointment WHERE Doctor_ID = ?', [req.body['id']],
     (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);

@@ -41,6 +41,7 @@ const signup = (req: Request, res: Response) => {
 						message: 'User account created!',
 						result: result,
                         id: username
+                        
 					});
 				}
 			});
@@ -82,7 +83,7 @@ const login = (req: Request, res: Response) => {
             } else {
                 res.status(200).json({
                     message: 'Successfully logged in',
-                    id: username
+                    result: result[0]
                 });
             }
         });

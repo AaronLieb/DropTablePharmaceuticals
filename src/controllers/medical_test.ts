@@ -25,7 +25,7 @@ const getAll = (req: Request, res: Response) => {
 const getTest = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `getTest called.`);
 
-    mysql.db.query('SELECT * FROM medical_test WHERE testId = ?', [req.body['id']],
+    mysql.db.query('SELECT * FROM medical_test WHERE Patient_SSN = ?', [req.body['id']],
     (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);

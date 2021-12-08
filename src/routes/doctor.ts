@@ -3,7 +3,7 @@ import controller from '../controllers/doctor';
 
 const router = express.Router();
 
-router.post('/', controller.getAll);
+router.post('/getAll', controller.getAll);
 router.post('/patient', controller.getPatientDoctor);
 router.post('/', controller.postDoctor);
 

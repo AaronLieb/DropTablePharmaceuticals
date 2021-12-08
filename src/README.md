@@ -8,9 +8,9 @@ POST - /doctor `{ firstName, lastName, phone, specialty, salary }`
 
 ## /Patient
 
-POST - / `{}`<br />
+POST - /getAll `{}`<br />
 POST - /id `{ id: int }`<br />
-POST - /patient `{ firstName, lastName, phoneNumber, streetName, streetNumber, city, zip, insurance }`
+POST - / `{ firstName, lastName, phoneNumber, streetName, streetNumber, city, zip, insurance }`
 
 ## /Appointment
 
@@ -20,13 +20,13 @@ POST - / `{ test, patientId, doctorId, time, date, room }`
 
 ## /Test
 
-POST - / `{}`<br />
+POST - /getAll `{}`<br />
 POST - /id `{ id: int }`<br />
 POST - / `{ docId: int, Test_type: string, Result: string, patientId: char, dateGiven: string }`<br />
 
 ## /Prescription
 
-POST - / `{}`<br />
+POST - /getAll `{}`<br />
 POST - /id `{ id: int }`<br />
 POST - / `{ name: string, dosage: int, refills: int, datePrescribed: date, recentFilling: date, doctorId: int, patientId: int }`<br />
 

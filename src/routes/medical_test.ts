@@ -3,7 +3,7 @@ import controller from '../controllers/medical_test';
 
 const router = express.Router();
 
-router.post('/', controller.getAll);
+router.post('/getAll', controller.getAll);
 router.post('/id', controller.getTest);
 router.post('/', controller.postTest);
 

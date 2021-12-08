@@ -15,8 +15,6 @@ VALUES ('Joji', 'Patient', '88rising');
 INSERT INTO ACCOUNT
 VALUES ('purpleyen', 'Patient', 'kendamajaz');
 
-SELECT * FROM DOCTOR;
-
 INSERT INTO DOCTOR (First_name, Last_name, Specialty, Salary, username, Phone_number)
 VALUES('John', 'Smith','Surgeon', 150000, 'Johnnyboi', '4356781234');
 INSERT INTO DOCTOR (First_name, Last_name, Specialty, Salary, username, Phone_number)
@@ -25,8 +23,6 @@ INSERT INTO DOCTOR (First_name, Last_name, Specialty, Salary, username, Phone_nu
 VALUES('Lebron', 'James','Anethesiologist', 180000, 'Bigdog', '987654321');
 INSERT INTO DOCTOR (First_name, Last_name, Specialty, Salary, username, Phone_number)
 VALUES('Morgan', 'Freeman','Dermatologist', 140000, 'doc', '1231231234');
-
-SELECT * FROM PATIENT;
 
 INSERT INTO PATIENT
 VALUES('123456789', 'Tom', 'Hanks','River Street', '123', 'Los Angeles', '45675', 1, 'Vagrant','2345671243');
@@ -37,7 +33,6 @@ VALUES('444555666', 'Hugh', 'Jackman','Wolvering Street', '444', 'San Diego', '7
 INSERT INTO PATIENT
 VALUES('777888999', 'Leonardo', 'DiCaprio','inception Way', '456', 'London', '0345', 4, 'purpleyen','9998887776');
 
-SELECT * FROM PRESCRIPTION;
 
 INSERT INTO PRESCRIPTION
 VALUES(1, 'Atorvastatin',  2, 4, 1, '123456789', '2021-01-21 08:45:23', '2021-02-21 12:45:21');
@@ -48,9 +43,6 @@ VALUES(3, 'Metformin',  5, 1, 3, '444555666', '2021-03-10 15:02:45', '2021-04-10
 INSERT INTO PRESCRIPTION
 VALUES(4, 'Amlodipine',  3, 2, 4, '777888999', '2021-10-02 09:10:43', '2021-11-02 10:50:30');
 
-
-SELECT * FROM MEDICAL_TEST;
-
 INSERT INTO MEDICAL_TEST
 VALUES(1, 1, 'Check-up', 'Passed', '123456789', '2021-01-21 07:45:23');
 INSERT INTO MEDICAL_TEST
@@ -60,8 +52,6 @@ VALUES(3, 3, 'Measurements', 'Height: 5 Foot 8 Inches', '444555666', '2021-03-10
 INSERT INTO MEDICAL_TEST
 VALUES(4, 4, 'Imaging', 'Passed', '777888999', '2021-10-02 09:10:43');
 
-SELECT * FROM APPOINTMENT;
-
 INSERT INTO APPOINTMENT
 VALUES(1, 1,'123456789', 1, '2021-01-21 07:30:23', 231);
 INSERT INTO APPOINTMENT
@@ -70,8 +60,6 @@ INSERT INTO APPOINTMENT
 VALUES(3, 3,'444555666', 3, '2021-03-10 13:30:45', 240);
 INSERT INTO APPOINTMENT
 VALUES(4, 4,'777888999', 4, '2021-10-02 09:00:43', 230);
-
-SELECT * FROM AUDIT;
 
 INSERT INTO AUDIT
 VALUES(1, 'Restock', '2021-01-21 17:30:23');

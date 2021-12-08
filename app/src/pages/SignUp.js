@@ -52,7 +52,7 @@ const SignUp = () => {
 		
 	}
 	
-	if (redirect === "patient") return <Navigate to='/patient' />
+	if (redirect === "patient") return <Navigate to={'/patient' + ssn} />
 	if (redirect === "doctor") return <Navigate to='/doctor' />
 
 	return (

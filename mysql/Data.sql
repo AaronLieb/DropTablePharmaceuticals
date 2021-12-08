@@ -1,3 +1,4 @@
+USE Doc_Office;
 INSERT INTO ACCOUNT
 VALUES ('Johnnyboi', 'Doctor', 'john2$');
 INSERT INTO ACCOUNT

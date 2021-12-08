@@ -2,6 +2,13 @@ DROP DATABASE IF EXISTS Doc_Office;
 CREATE DATABASE Doc_Office;
 USE Doc_Office;
 DROP TABLE IF EXISTS DOCTOR;
+
+DROP TABLE IF EXISTS ACCOUNT;
+CREATE TABLE ACCOUNT(
+	username varchar(45) NOT NULL UNIQUE,
+    role varchar(45),
+    hash varchar(100)
+    );
 CREATE TABLE DOCTOR(
 	  Doctor_ID int NOT NULL UNIQUE AUTO_INCREMENT,
     First_name varchar(45) ,
@@ -44,20 +51,6 @@ CREATE TABLE PRESCRIPTION(
 	FOREIGN KEY (Patient_SSN) REFERENCES PATIENT(SSN)
 );
 
-DROP TABLE IF EXISTS APPOINTMENT;
-CREATE TABLE APPOINTMENT(
-	  Appointment_number int,
-    Test_given int,
-	  Patient_SSN char(9),
-    Doctor_ID int AUTO_INCREMENT,
-    Date datetime,
-    Room_number int,
-    PRIMARY KEY (Appointment_number),
-    FOREIGN KEY (Patient_SSN) REFERENCES PATIENT(SSN),
-    FOREIGN KEY (Test_given) REFERENCES MEDICAL_TEST(Test_ID),
-    FOREIGN KEY (Doctor_ID) REFERENCES DOCTOR(Doctor_ID)
-    );
-
 DROP TABLE IF EXISTS MEDICAL_TEST;
 CREATE TABLE MEDICAL_TEST(
 	  Test_ID int AUTO_INCREMENT,
@@ -70,20 +63,26 @@ CREATE TABLE MEDICAL_TEST(
     PRIMARY KEY (Test_ID),
     FOREIGN KEY (Doctor_ID) REFERENCES DOCTOR(Doctor_ID),
     FOREIGN KEY (Patient_SSN) REFERENCES PATIENT(SSN)
+);
+
+DROP TABLE IF EXISTS APPOINTMENT;
+CREATE TABLE APPOINTMENT(
+	Appointment_number int,
+    Test_given int,
+	Patient_SSN char(9),
+    Doctor_ID int AUTO_INCREMENT,
+    Date datetime,
+    Room_number int,
+    PRIMARY KEY (Appointment_number),
+    FOREIGN KEY (Patient_SSN) REFERENCES PATIENT(SSN),
+    FOREIGN KEY (Test_given) REFERENCES MEDICAL_TEST(Test_ID),
+    FOREIGN KEY (Doctor_ID) REFERENCES DOCTOR(Doctor_ID)
     );
 
 DROP TABLE IF EXISTS AUDIT;
 CREATE TABLE AUDIT(
-	  Doctor_ID int AUTO_INCREMENT,
+	Doctor_ID int AUTO_INCREMENT,
     Action varchar(100),
     Date_modified datetime,
     FOREIGN KEY (Doctor_ID) REFERENCES DOCTOR(Doctor_ID)
-    );
-    
-DROP TABLE IF EXISTS ACCOUNT;
-CREATE TABLE ACCOUNT(
-	  username varchar(45) NOT NULL UNIQUE,
-    role varchar(45),
-    hash varchar(45),
-    salt varchar(45)
     );

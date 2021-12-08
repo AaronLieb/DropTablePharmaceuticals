@@ -43,7 +43,7 @@ const postAppointment = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `postDoctor called.`);
     let { test, patientId, doctorId, time, date, room } = req.body;
 
-    mysql.db.query('INSERT INTO appointment VALUES ?', [test, patientId, doctorId, time, date, room],
+    mysql.db.query('INSERT INTO appointment VALUES (?)', [[test, patientId, doctorId, time, date, room]],
      (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);
@@ -56,23 +56,9 @@ const postAppointment = (req: Request, res: Response) => {
     });
 };
 
-const updateAppointment = (req: Request, res: Response) => {
-    logging.info(NAMESPACE, `updateAppointment endpoint called.`);
-    mysql.db.query('REPLACE', [req.body['id']], (error, result) => {
-        if (error) {
-            logging.error(NAMESPACE, 'Could not perform query', error);
-            res.status(400).json(error);
-        } else {
-            return res.status(200).json({
-                result: result
-            });
-        }
-    });
-}
 
 export default {
     getByPatient,
     getByDoctor,
-    postAppointment,
-    updateAppointment
+    postAppointment
 };

@@ -38,7 +38,7 @@ const postPrescription = (req: Request, res: Response) => {
     logging.info(NAMESPACE, `postDoctor called.`);
     let { name, dosage, refills, datePrescribed, recentFilling, doctorId, patientId } = req.body;
 
-    mysql.db.query('INSERT INTO prescription VALUES ?', [name, dosage, refills, datePrescribed, recentFilling, doctorId, patientId],
+    mysql.db.query('INSERT INTO prescription VALUES (?)', [[name, dosage, refills, datePrescribed, recentFilling, doctorId, patientId]],
      (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not perform query', error);
@@ -51,23 +51,8 @@ const postPrescription = (req: Request, res: Response) => {
     });
 };
 
-const updatePrescription = (req: Request, res: Response) => {
-    logging.info(NAMESPACE, `updatePrescription endpoint called.`);
-    mysql.db.query('REPLACE', [req.body['id']], (error, result) => {
-        if (error) {
-            logging.error(NAMESPACE, 'Could not perform query', error);
-            res.status(400).json(error);
-        } else {
-            return res.status(200).json({
-                result: result
-            });
-        }
-    });
-}
-
 export default{
     getAll,
     getPrescription,
-    postPrescription,
-    updatePrescription
+    postPrescription
 }

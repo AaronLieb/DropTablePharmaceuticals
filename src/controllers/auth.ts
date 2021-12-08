@@ -15,6 +15,7 @@ const signup = (req: Request, res: Response) => {
     mysql.db.query('SELECT username FROM account WHERE username = ?', [username], async (error, result) => {
         if (error) {
             logging.error(NAMESPACE, 'Could not query username', error);
+            res.status(400);
         }
         if (result > 0) {
             logging.info(NAMESPACE, 'Username already in use');
@@ -59,6 +60,9 @@ const login = (req: Request, res: Response) => {
 
         mysql.db.query('SELECT * FROM account WHERE username = ?', [username],
         async (error, result) => {
+            if (error){
+                res.status(400);
+            }
             let { username, role, hash } = result[0];
             if (!result || !(await bcrypt.compare(password, hash))) {
                 res.status(400).json({

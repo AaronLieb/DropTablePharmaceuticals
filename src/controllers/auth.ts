@@ -28,9 +28,8 @@ const signup = (req: Request, res: Response) => {
             });
         }
 
-        let salt = bcrypt.genSaltSync();
-        let hashedPassword = await bcrypt.hash(password, salt);
-        mysql.db.query('INSERT INTO account VALUES ?', [username, role, hashedPassword, salt],
+        let hashedPassword = await bcrypt.hash(password, 10);
+        mysql.db.query('INSERT INTO account VALUES (?)', [[username, role, hashedPassword]],
         (error, result) => {
             if (error) {
                 logging.info(NAMESPACE, 'Error inserting user into db', error);
@@ -60,7 +59,8 @@ const login = (req: Request, res: Response) => {
 
         mysql.db.query('SELECT * FROM account WHERE username = ?', [username],
         async (error, result) => {
-            if (!result || !(await bcrypt.compare(password, result[0].password))) {
+            let { username, role, hash } = result[0];
+            if (!result || !(await bcrypt.compare(password, hash))) {
                 res.status(400).json({
                     message: 'Username or password is incorrect'
                 });

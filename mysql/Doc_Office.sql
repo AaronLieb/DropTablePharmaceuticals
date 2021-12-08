@@ -86,6 +86,7 @@ CREATE TABLE AUDIT(
 	Doctor_ID int,
     Action varchar(100),
     Date_modified datetime,
+	PRIMARY KEY (id),
     FOREIGN KEY (Doctor_ID) REFERENCES DOCTOR(Doctor_ID)
     );
 

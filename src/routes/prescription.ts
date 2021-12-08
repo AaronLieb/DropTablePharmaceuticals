@@ -6,6 +6,5 @@ const router = express.Router();
 router.get('/', controller.getAll);
 router.get('/id', controller.getPrescription);
 router.post('/', controller.postPrescription);
-router.put('/', controller.updatePrescription);
 
 export = router;

@@ -6,7 +6,7 @@ import {Navigate} from 'react-router-dom';
 const SignUp = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	const [role, setRole] = useState("");
+	const [role, setRole] = useState("patient");
 	const [firstName, setFirstName] = useState("");
 	const [ssn, setSSN] = useState("");
 	const [redirect, redirectTo] = useState("");
@@ -52,7 +52,7 @@ const SignUp = () => {
 		
 	}
 	
-	if (redirect === "patient") return <Navigate to='/patient' />
+	if (redirect === "patient") return <Navigate to={"/patient?id=" + ssn} />
 	if (redirect === "doctor") return <Navigate to='/doctor' />
 
 	return (
@@ -72,7 +72,7 @@ const SignUp = () => {
 				<input type="text" name="ssn" value={ssn} onChange={(e) => setSSN(e.target.value)}/>
 				<div class="horizontal">
 					<label> Patient </label>
-					<input type="radio" name="accounttype" value="patient" onChange={(e) => setRole(e.target.value)} />
+					<input type="radio" name="accounttype" checked="checked" value="patient" onChange={(e) => setRole(e.target.value)} />
 					<label> Doctor </label>
 					<input type="radio" name="accounttype" value="doctor" onChange={(e) => setRole(e.target.value)}/>
 				</div>

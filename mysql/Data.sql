@@ -26,13 +26,13 @@ INSERT INTO DOCTOR (First_name, Last_name, Specialty, Salary, username, Phone_nu
 VALUES('Morgan', 'Freeman','Dermatologist', 140000, 'doc', '1231231234');
 
 INSERT INTO PATIENT
-VALUES('123456789', 'Tom', 'Hanks','River Street', '123', 'Los Angeles', '45675', 1, 'Vagrant','2345671243');
+VALUES('123456789', 'Tom', 'Hanks','River Street', '123', 'Los Angeles', '45675', 1, 'Vagrant','2345671243', 1);
 INSERT INTO PATIENT
-VALUES('111222333', 'Chris', 'Evans','America Ave', '987', 'Brooklyn', '17843', 2, 'Questions','7653498126');
+VALUES('111222333', 'Chris', 'Evans','America Ave', '987', 'Brooklyn', '17843', 2, 'Questions','7653498126', 1);
 INSERT INTO PATIENT
-VALUES('444555666', 'Hugh', 'Jackman','Wolvering Street', '444', 'San Diego', '78432', 3, 'Joji','1112223334');
+VALUES('444555666', 'Hugh', 'Jackman','Wolvering Street', '444', 'San Diego', '78432', 3, 'Joji','1112223334', 1);
 INSERT INTO PATIENT
-VALUES('777888999', 'Leonardo', 'DiCaprio','inception Way', '456', 'London', '0345', 4, 'purpleyen','9998887776');
+VALUES('777888999', 'Leonardo', 'DiCaprio','inception Way', '456', 'London', '0345', 4, 'purpleyen','9998887776', 1);
 
 
 INSERT INTO PRESCRIPTION
@@ -63,10 +63,10 @@ INSERT INTO APPOINTMENT
 VALUES(4, 4,'777888999', 4, '2021-10-02 09:00:43', 230);
 
 INSERT INTO AUDIT
-VALUES(1, 'Restock', '2021-01-21 17:30:23');
+VALUES(0, 1, 'Restock', '2021-01-21 17:30:23');
 INSERT INTO AUDIT
-VALUES(2, 'New Scrubs', '2021-11-27 12:00:54');
+VALUES(0, 1, 'New Scrubs', '2021-11-27 12:00:54');
 INSERT INTO AUDIT
-VALUES(3, 'Calibrate Machines', '2021-03-10 07:00:45');
+VALUES(0, 1, 'Calibrate Machines', '2021-03-10 07:00:45');
 INSERT INTO AUDIT
-VALUES(4, 'Organized Files', '2021-01-03 07:00:43');
+VALUES(0, 1, 'Organized Files', '2021-01-03 07:00:43');

@@ -31,7 +31,7 @@ AND doctorspecialty.specialtyId = specialty.specialtyId;
 CREATE VIEW SPECIALTIES AS
 SELECT firstName, lastName, specialty
 FROM doctor, doctorspecialty ,specialty
-WHERE doctor.doctorId = specialty.doctorId 
+WHERE doctor.doctorId = doctorspecialty.doctorId
 AND doctorspecialty.specialtyId = specialty.specialtyId
     UNION ALL
 SELECT firstName, lastName, specialty
